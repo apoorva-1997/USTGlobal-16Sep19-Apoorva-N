@@ -1,0 +1,33 @@
+<div class="col-md-4 offset-4 mt-4 mb-4 card card-body">
+    <form action="" [formGroup]="form" (ngSubmit)="logindata(form)">
+        <h1 class="text-center text-white bg-dark">Reactive Form</h1>
+        <div class="form-group">
+          <input type="movie" name="movie" id="movie" placeholder="Movie movie" class="form-control" formControlName='movie'>
+          <div *ngIf="movie.touched && movie.invalid">
+          <p *ngIf='movie.errors.required' class="text-danger">This field is required</p>
+          
+          </div>
+        </div>
+        <div class="form-group">
+            <input type="title" name="title" id="title" class="form-control" placeholder="Movie title" formControlName='title'>
+            <div *ngIf="title.touched && title.invalid">
+                    <p *ngIf='title.errors.required' class="text-danger">This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="img" name="img" id="img" class="form-control" placeholder="Movie imgUrl" formControlName='imgUrl'>
+            <div *ngIf="img.touched && img.invalid">
+                    <p *ngIf='img.errors.required' class='text-danger'>This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea  name="description" id="description" cols=50 rows=7 class="form-control" placeholder="Movie description" formControlName='description'> </textarea>
+            <div *ngIf="description.touched && description.invalid">
+                    <p *ngIf='description.errors.required' class='text-danger'>This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-success float-right" [disabled]='form.invalid'>Login</button>
+        </div>
+    </form>
+    </div>

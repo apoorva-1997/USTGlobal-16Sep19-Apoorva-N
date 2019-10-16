@@ -1,0 +1,12 @@
+<div id ="bar" style="border-radius: 2px;height: 30px; width: 60px;">
+<input type="search" name="" id="" placeholder="Search by name">
+</div>
+<div>
+    <div class="container mt-2 float-left card card-body">
+       
+       <div class="card card-body" *ngFor="let movie of movies">
+        <img src="{{movie.imgUrl}}" alt="">
+        <h1>{{movie.name}}</h1>
+    </div>
+    </div>
+</div>
