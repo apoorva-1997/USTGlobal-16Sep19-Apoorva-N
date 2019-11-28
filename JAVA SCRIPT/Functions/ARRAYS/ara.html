@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ara</title>
+</head>
+<body>
+    <script>
+        var names = ['apoorva', 'ratna', 'amogha'];
+        console.log('For of loop')
+        for(var element of names){
+        console.log('names ', element);
+        
+}
+console.log("********************************");
+       
+var names = ['a',, 'c'];
+        console.log('for in loop');
+        for( var index in names)
+        console.log('value',names[index]);
+
+console.log("********************************");
+       
+var girl = {
+    name:'apoorva',
+    age:22,
+    }
+        console.log('for in loop');
+        for( var key in girl)
+        console.log('value',girl[key]);
+
+
+console.log("********************************");
+       
+var movies = ['ABCD',, 'ABCD2'];
+        console.log('forEach loop');
+        movies.forEach( function(value,index){
+          console.log('movie='+value);
+          console.log('movie='+index);
+        })
+
+console.log("********************************");
+var items = [{
+      item : 'eyeliner',
+      cost : 500,
+      id : 1
+},
+{
+    item : 'sandel',
+    cost : 800,
+    id : 3
+},
+{
+    item : 'bike',
+    cost : 60000,
+    id : 3
+},
+{
+    item : 'watch',
+    cost : 700,
+    id : 4
+}];
+console.log('forEach loop');
+items.forEach( function(value,index){
+    console.log('items',value);
+    console.log('items',index);
+})
+
+
+console.log('(***************************')
+//var key word
+var name ;
+var name = 'asd'
+name = 'xys'
+console.log(name)
+
+//let key word
+let name1;
+// let name1 = 'sahoo'
+name1 = 'asd'
+name1 = 'fgh'
+console.log(name1)
+
+//const keyword
+const name2 ='hjk'
+console.log(name2)
+//name2 = 'gfgf'
+//const name2 - 'huu'
+
+
+console.log('**********************************')
+for(var i=0; i<5; i++){
+    console.log(' inside loop series',i)
+}
+console.log('outside loop series',i)
+
+console.log('**********************************')
+for(let i=0; i<5; i++){
+    console.log('inside loop series',i)
+}
+console.log('outside loop series',i)
+
+
+</script>
+    
+</body>
+</html>
