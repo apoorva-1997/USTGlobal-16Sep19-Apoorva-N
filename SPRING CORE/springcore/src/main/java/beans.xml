@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="hello" class="com.ustglobal.springcore.di.Hello" init-method="init" destroy-method="destroy">
+		<!-- to change address an make unique mention scope and prototype never stores obj -->
+
+		<property name="msg" value="hey how are you" />
+		
+		<property name="map">									<!-- property tag for map -->
+		<map>
+			<entry key="One" value="1"></entry>
+			<entry key="Two" value="2"></entry>
+		</map>
+		</property>
+	</bean>
+
+	<bean id="dog" class="com.ustglobal.springcore.Dog"  primary="true"/>
+
+	<bean id="human" class="com.ustglobal.springcore.di.Human" />
+
+	<!-- if we have more than one type to consider this type (human) only we use primary="true" -->
+
+	<bean id="pet" class="com.ustglobal.springcore.di.Pet" autowire = "byName">   <!-- to wire automatically use autowiri -->
+		
+	<property name="name" value="Boney"></property>	 			
+		<!-- <property name="animal" ref="dog"></property>  -->
+		
+		 <!-- <constructor-arg name="name" value="Boney"></constructor-arg> -->		<!-- constructor injection /wiring through constructor -->
+		<!-- <constructor-arg name="animal" ref="dog"></constructor-arg>  -->
+		
+		<!-- if we need property for obj give ref -->
+	</bean>
+	
+	<bean id="animal" class="com.ustglobal.springcore.Cat" ></bean>
+	
+	<bean id="beanPosterProcessor" class="com.ustglobal.springcore.di.BeanPostProcessors"></bean>
+	
+	<bean id="beanFactoryPostProcessor" class="com.ustglobal.springcore.di.BeanFactoryPostprocessorClass"></bean>
+</beans> 
+
