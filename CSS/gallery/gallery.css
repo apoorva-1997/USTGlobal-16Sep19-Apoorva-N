@@ -1,0 +1,17 @@
+
+img{
+    width: 250px;
+    height: 300px;
+    border: 2px solid black;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+    box-shadow: 8px 8px 10px rgb(44, 82, 207);
+    transition: all 2s;
+    }
+
+    img:hover{
+        transform: scale(1.2,1.2);
+    }
+              
