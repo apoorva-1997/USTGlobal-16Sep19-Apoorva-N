@@ -1,0 +1,14 @@
+package com.ustglobal.phonesimulator.dao;
+
+import java.util.List;
+
+import com.ustglobal.phonesimulator.dto.PhoneSimulator;
+
+public interface PhoneDAO {
+
+	public List<PhoneSimulator> getAllContact();
+	public PhoneSimulator searchContact(String Name);
+//	public int addContact(PhoneSimulator phone);
+	public int deleteContact(String Name);
+	public int editContact(int Number, String Groups, String Name);
+}//end of PhoneDAO

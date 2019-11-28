@@ -1,0 +1,36 @@
+package com.ustglobal.phonesimulator.main;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.ustglobal.phonesimulator.dao.PhoneDAO;
+import com.ustglobal.phonesimulator.dto.PhoneSimulator;
+import com.ustglobal.phonesimulator.util.PhoneManager;
+
+public class MainClass {
+
+	public static void main(String[] args) throws Exception {
+		
+		System.out.println("Press 1 to Show all contacts");
+		System.out.println("Press 2 to Search for contacts(using name)");
+		System.out.println("Press 3 to operate on contact");
+		
+		Scanner scn = new Scanner(System.in);
+		int no = scn.nextInt();
+		
+		switch(no){
+			
+		case 1 :
+			
+		PhoneDAO dao = PhoneManager.getPhoneDAO();
+		List<PhoneSimulator> list = dao.getAllContact();
+		
+		
+		for(PhoneSimulator phone : list) {
+			System.out.println(phone.getName());
+		}
+		
+		break;
+		}//end of switch
+	}//end of main
+}//end of MainClass

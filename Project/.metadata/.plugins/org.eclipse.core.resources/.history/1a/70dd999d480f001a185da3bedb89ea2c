@@ -1,0 +1,11 @@
+package com.ustglobal.phonesimulator.main;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Press 1 to Show all contacts");
+		System.out.println("Press 2 to Search for contacts(using name)");
+		System.out.println("Press 3 to operate on contact");
+	}//end of main
+}//end of MainClass

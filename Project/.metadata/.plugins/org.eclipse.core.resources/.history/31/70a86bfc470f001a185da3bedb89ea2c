@@ -1,0 +1,12 @@
+package com.ustglobal.phonesimulator.util;
+
+import com.ustglobal.phonesimulator.dao.PhoneDAO;
+import com.ustglobal.phonesimulator.dao.PhoneImplDAO;
+
+public class PhoneManager {
+	
+	public PhoneDAO getPhoneDAO() {
+		return new  PhoneImplDAO;
+	}
+
+}//end of PhoneManager

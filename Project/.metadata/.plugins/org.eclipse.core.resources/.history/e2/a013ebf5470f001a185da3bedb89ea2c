@@ -1,0 +1,5 @@
+package com.ustglobal.phonesimulator.util;
+
+public class PhoneManager {
+
+}

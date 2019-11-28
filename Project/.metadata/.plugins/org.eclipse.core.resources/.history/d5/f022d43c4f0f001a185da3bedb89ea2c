@@ -1,0 +1,11 @@
+package com.ustglobal.phonesimulator.dao;
+
+import java.util.List;
+
+import com.ustglobal.phonesimulator.dto.PhoneSimulator;
+
+public interface PhoneDAO {
+
+	public List<PhoneSimulator> getAllContact();
+	public PhoneSimulator searchContact(String Name);
+}//end of PhoneDAO
