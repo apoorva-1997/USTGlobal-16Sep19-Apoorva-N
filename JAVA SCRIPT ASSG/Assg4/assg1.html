@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>itemprice</title>
+</head>
+<body>
+    <script>
+const items= [{
+    i1 : 'eyeliner',
+    cost : 500,
+    id : 1
+},
+{
+    i2 : 'sandel',
+    cost : 800,
+    id : 3
+},
+{
+    i3 : 'bike',
+    cost : 60000,
+    id : 3
+},
+{
+    i4 : 'watch',
+    cost : 700,
+    id : 4
+}];
+
+items.map(function(item,index){
+    item.cost = item.cost+100;
+    return item
+})
+items.map((value) =>{
+    value.cost = value.cost + 300;
+    return value
+})
+console.log(items)
+
+const filteredItems = items.filter((item) => item.price > 1000)
+console.log('filteredItems',filteredItems)
+
+</script>
+    
+</body>
+</html>
