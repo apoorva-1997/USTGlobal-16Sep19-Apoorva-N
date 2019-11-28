@@ -1,0 +1,27 @@
+
+<form action="" class=" col-md-6 offset-3 mb-5 mt-5 card card-body" #form="ngForm" (ngSubmit)="loginData(form)">
+<h1 class="class text-center bg-dark text-white">form-1</h1>  
+<div class="form-group">
+<input type="company name" name="company name" id="company name" class="form-control" placeholder="Company Name" #Company Name="ngModel" ngModel required>
+</div>
+<!-- <div class="form-group">
+<select name="skills" id="skills" class="form-control" #skills="NgModel"  ngModel >
+    <option value="" disabled>skills</option>
+    <option value="">Java</option>
+    <option value="">SQL</option>
+    <option value="">Angular</option>
+</select>
+</div> -->
+<div class="form-group">
+    <input type="year of experience" name="year og experience" id="year og experience" class="form-control" placeholder="Year og Experience"#year og experience="ngModel" ngModel required>
+</div>
+<div class="form-group">
+    <input type="MCTC" name="MCTC" id="MCTC" class="form-control" placeholder="MCTC"#MCTC="ngModel" ngModel required>
+</div>
+<div class="form-group">
+    <input type="Location" name="Location" id="Location" class="form-control" placeholder="Location"#Location="ngModel" ngModel required>
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-outline-success float-right">Add Requirment</button>
+</div>
+</form>

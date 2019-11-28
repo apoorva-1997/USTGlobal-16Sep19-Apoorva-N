@@ -1,0 +1,29 @@
+
+<form action="" class=" col-md-6 offset-3 mb-5 mt-5 card card-body" #form="ngForm" (ngSubmit)="loginData(form)">
+    <h1 class="class text-center bg-dark text-white">form-1</h1>  
+    <div class="form-group">
+    <input type="candidate name" name="candidate name" id="candidate name" class="form-control" placeholder="candidate Name" #candidate Name="ngModel" ngModel required>
+    </div>
+    <div class="form-group">
+        <input type="year of experience" name="year og experience" id="year og experience" class="form-control" placeholder="Year og Experience"#year og experience="ngModel" ngModel required>
+    </div>
+    <div>
+    <label for="skills">skills</label><br>
+    <input type="radio" name="skills" id="male">Java
+    <input type="radio" name="skills" id="male">Angular
+    <input type="radio" name="skills" id="female">SQL
+    <input type="radio" name="skills" id="others">Springs<br>
+    </div><br>
+    <div class="form-group">
+        <input type="ECTC" name="ECTC" id="ECTC" class="form-control" placeholder="ECTC" #ECTC="ngModel" ngModel required>
+    </div>
+    <div class="form-group">
+        <input type="CCTC" name="CCTC" id="CCTC" class="form-control" placeholder="CCTC" #CCTC="ngModel" ngModel required>
+    </div>
+    <div class="form-group">
+        <input type="Ready to Relocate" name="Ready to Relocate" id="Ready to Relocate" class="form-control" placeholder="Ready to Relocate" #Ready to Relocate="ngModel" ngModel required>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-success float-right">Schedule Interview</button>
+    </div>
+    </form>

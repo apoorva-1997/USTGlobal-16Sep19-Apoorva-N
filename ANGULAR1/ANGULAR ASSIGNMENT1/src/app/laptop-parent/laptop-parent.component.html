@@ -1,0 +1,7 @@
+<div class="col-md-5 mt-2 float-left card card-body">
+    <div class="card card-body" *ngFor="let lap of laptops">
+        <img src="{{lap.imgUrl}}" alt="" (click)='openlap(lap)'>
+         <h1 class="text-center">{{lap.name}}</h1>
+    </div>
+</div>
+<app-laptop-child [lap]='newlaps'></app-laptop-child>

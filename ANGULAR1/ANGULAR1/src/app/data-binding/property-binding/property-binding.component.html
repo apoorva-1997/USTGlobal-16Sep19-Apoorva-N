@@ -1,0 +1,29 @@
+<h1 [innerText]="name"></h1>
+<img [src]="imgUrl" alt="" [class.rounded-circle]="isActive">
+<h1 [style.color]='colorname' [class.bg-dark]="isActive" [class.bg-light]="!isActive" >{{address}}</h1>
+
+ 
+<table class="table table-light table-bordered table-stripped">
+    
+<thead>
+<tr>
+<th> name</th>
+<th>age</th>
+<th [attr.colspan]='colspanvalue'>number</th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td>xay</td>
+        <td>34</td>
+        <td>5476890098</td>
+        <td>64575674479</td>
+    </tr>
+    <tr>
+        <td>chkh</td>
+        <td>23</td>
+        <td>21535</td>
+        <td>7387485</td>
+    </tr>
+</tbody>
+</table>

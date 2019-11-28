@@ -1,0 +1,6 @@
+<app-comment (getComment)="getAllComment($event)"></app-comment>
+
+<div class="col-md-8 offset-2 mt-1 card card-body" *ngFor="let comment of Comments" style="background-color: #eee">
+    <h1 class="text-center text-white" style="background-color: indigo; border-radius: 4px; font-family: 'Courier New', Courier, monospace">{{comment.title}}</h1>
+    <p>{{comment.desc}}</p>
+</div>

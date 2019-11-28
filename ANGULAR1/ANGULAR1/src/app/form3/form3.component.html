@@ -1,0 +1,31 @@
+
+<form action="" class=" col-md-6 offset-3 mb-5 mt-5 card card-body" #form="ngForm" (ngSubmit)="loginData(form)">
+    <h1 class="class text-center bg-dark text-white">form-1</h1>  
+    <div class="form-group">
+    <input type="user name" name="user name" id="user name" class="form-control" placeholder="user Name" #user Name="ngModel" ngModel required>
+    </div>
+    <div class="form-group">
+        <input type="user age" name="user age" id="user age" class="form-control" placeholder="user age"#user age="ngModel" ngModel required>
+    </div>
+    <div>
+    <label for="gender">Gender</label><br>
+    <input type="radio" name="Gender" id="male">Male
+    <input type="radio" name="Gender" id="male">Female
+    <input type="radio" name="Gender" id="female">Others
+    </div><br>
+    <div class="form-group">
+        <input type="User Email" name="User Email" id="User Email" class="form-control" placeholder="User Email" #User Email="ngModel" ngModel required>
+    </div>
+    <!-- <div class="form-group">
+        <input type="User Contact No" name="User Contact No" id="User Contact No" class="form-control" placeholder="User Contact No" #User Contact No="ngModel" ngModel required>
+    </div>
+    <div class="form-group">
+        <input type="Password" name=" Password" id="Password" class="form-control" placeholder="Password" # Password="ngModel" ngModel required>
+    </div>
+    <div class="form-group">
+        <input type="Retype Password" name=" Retype Password" id="Retype Password" class="form-control" placeholder="Retype Password" # Retype Password="ngModel" ngModel required>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-success float-right">Add User</button>
+    </div> -->
+    </form>

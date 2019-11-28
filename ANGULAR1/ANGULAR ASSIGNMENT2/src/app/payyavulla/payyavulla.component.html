@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-4">
+    
+    <h5 class="text-center">Entertainment News</h5>
+    
+    <div class="float-left">
+    <div id="card"  class=" card card-body  " *ngFor = "let enew of enews">
+       <img id="image" src="{{enew.urlToImage}}" alt="">
+        <h5>{{enew.title}}</h5>
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-md-4 ">
+    
+     <h5 class="text-center"> Top News in India</h5>
+    <div id="card1" class="  card card-body " *ngFor = "let new of news">
+        <img id="image1" src="{{new.urlToImage}}" alt="">
+        <h5>{{new.title}}</h5>
+    </div> 
+    
+    </div>
+    
+    
+    <div class="col-md-4"> 
+    <h5 class="text-center">Sports News</h5>
+    <div class="float-right">
+    <div id="card"  class="card card-body " *ngFor = "let sport of sports">
+        <img id="image" src="{{sport.urlToImage}}" alt="">
+        <h5>{{sport.title}}</h5>
+    </div>
+    </div> 
+    </div>
+    </div>
+    
+    
