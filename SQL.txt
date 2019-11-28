@@ -1,0 +1,395 @@
+show databases;
+use sql1;
+show tables;
+desc product;
+
+DDL Operation : 
+create table product(pid int,pname varchar(120),quantity int);
+drop database sql1;
+drop table product;
+
+alter table product add column price int;
+alter table product change column price cost int;
+alter table product drop column cost;
+
+rename table product to productinfo;
+
+DML Operation :
+insert into productinfo(pid,pname,quantity)values(1,'pen',2);
+insert into productinfo values(2,'pencil',3);
+insert into productinfo(pid,pname)values(3,'book');
+insert into productinfo(pid,pname,quantity)values(4,'eraser',12),(5,'marker',20),(6,'gum',10);
+
+select*from productinfo;
+delete from productinfo;
+select pid from productinfo; //projection
+select distinct designation from emp;
+select distinct designation,deptno from emp;
+select mobileno mbno from emp;
+
+WHERE CLAUSE :
+update emp set mobileno= 944136 where eid = 1;
+delete from emp where eid = 4;
+select*from emp where eid = 7;
+
+EXPRESSION(OPERATOR) 
+(airthmetic operator)
+select salary + 5000 increment from emp;
+select salary -5000 decrement from emp;
+select salary*12 annualsal from emp;
+select salary/30 monthlysal from emp;
+
+(RELATIONAL OPERATOR)
+select * from emp where deptno!=20;
+select * from emp where designation = 'software developer';
+select * from emp where salary<20000;
+select*from emp where age>30;
+select name,salary,email,mobileno from emp where age<=28; //display salary email name mobile no of emp whose age<=28;
+
+(LOGICAL OPERATOR)
+AND (checks first condition if it is false it wont check next directly produces output)==a.b
+     	==>select * from table_name where condition1 and condition2;
+
+1) query to display emp who is working in depno 20 as well as salary is >25000
+     	==>select * from emp where deptno=20 and salary=20000;
+
+2) query to display emp who is working in dept 20 and 10?
+     	==>select * from emp where deptno=20 and salary=20000;
+
+3) query to display emp who is working in dept 20 and 10 and display sal and name only?
+     	==> select name,salary from emp where deptno=111 and deptno=20;
+
+4) query to display emp detail whose job designation is tester and ang is 25?
+     	==>select * from emp where designation = 'tester' and age =25;
+
+OR(if one condition is satisfied then output is provided)==a+b
+     	==>select * from table_name where condition1 or condition2;
+
+1) query to display all record of emp who is working as tester or having salary<40000?
+     	==>select * from emp where salary>40000 or designation = 'tester';
+
+2) query to display name ,salary,age from emp who is working in deptno 40 or 10 or 50?
+     	==>select name,salary,age from emp where deptno=111 or deptno=20 or deptno=50;
+
+3) query to display emp detail whose age is more than 25 and blood group is B+?
+     	==> select * from emp where bloodgroup='B+' and age>25;
+
+
+NOT(accept only one arguments)
+SYNTAX-->select * from table_name where not condition;
+
+1)query to display all record of emp excluding tester?
+    	==>select * from emp where not designation ='tester';
+    	==>select * from emp where designation <> 'tester';
+
+2) query to display name of all emp who is working as HR or tester and salary is>40000?
+    	==>selet name from emp where designation = 'tester' or designation =' hr' and salary >40000;
+
+3) query to display all enp excluding software developer who is working in dept=40?
+     	==>select* from emp where designation != 'software developer' and deptno=40;
+order of execution ==> not and or
+
+4) query to display all the software developer who are working for deptno=10 or deptno 40?
+	==>select * from emp where designation ='software developer' and (deptno = 111 or deptno = 40);
+	
+===========================================================================================================================================
+
+SPECIAL OPERATOR
+-->USED EVALUATE MULTIPLE VALUES
+
+IN OPERATOR
+-->IN OPERATOR = USED FOR EVALUATING MULTIPLE VALUES OF SAME COLUMN
+SYNTAX => select * from emp tablename where colname IN (list of values);
+
+1) query to display all details of emp who is workng indeptno 40,50,60,70?
+	==>select *from emp where deptno IN (40,50,60,70,90);
+
+2) query to display all  details of emp who is workin as a tester,hr,admin?
+	==>select * from emp where designation in ('testet','hr','admin');
+
+
+3) query to display namees of emp who is workin as a tester,hr,admin?
+	==>select name from emp where designation in ('testet','hr','admin');
+
+4) query to display details of tester,admin,software developer who are working is deptno 20 or 30 and salary >40000?
+	==> select * from emp where designation in('software developer','admin','tester') and deptno in (20,30) and salary>40000;
+
+NOT IN OPERATOR
+SYNTAX => select * from emp tablename where colname NOT IN (list of values);
+
+1) query to display alll record of emp excluding who is working as tester,software developer and hr?
+	==>select * from emp where designation not in ('tester','software developer','admin');
+
+2) query to display all record of emp whos age is 20,25,30,40 exclide all details of tester and developer?
+	==>select * from emp where designation not in('software developer','tester') and age in (20,25,30,40);
+
+BETWEEN OPERATOR
+SEARCH VALUES IN CERTAIN RANGE
+SYNTAX=> select * from emp tablename where colname Between values1 and values2;
+
+1) query to display all the details of emp whose age is btw 20 - 40?
+	==>select * from emp where age between 20 and 40;
+
+2) query to display all details of empwho where hired during 2017?
+	==>select * from emp where doj between '2017-01-01' and '2017-12-30'; 
+
+3) quey to display all records of emp whose salary is in range of 25000 to 30000?
+	==>select * from emp where salary between 25000 and 30000;
+
+NOT BETWEEN OPERATIR
+excludes the values btw that range
+
+IS OPERATOR
+-->check null values in column
+
+LIKE OPERATOR
+-->used for pattern matching
+        % = matches 0 or 'n' char.
+        _ = match exactly one char
+SYNTAX =>select *from tablename where col_name like '%/_';
+1) query to display all details of emp whose name starts with S?
+	==>select * from emp where name like'S%';
+
+2)query to display the name of emp whose second char is I?
+	==>select * from emp where name like'_i%';
+
+3)query to display the name of emp whose name has atleast two o charecters?
+	==>select * from emp where name like'%o%o%';
+
+4)query to display name of emp whose name start with A and ends with l?
+	==>select * from emp where name like 'A%l';
+
+5)query to display all records of emp if emp name begins with a or s?
+	==>select * from emp where name like 'A%' or name like 'S%';
+
+6)query to display empname salary who is working in deptno 10,20,30 and designation starts with S?
+	==>select name,salary  from emp where deptno in (111,20,30) and designation like 's%';
+
+===================================================================================================================================
+
+FUNCTIONS-->block that performs specific task
+Types
+  1)SINGLESROW FUNCTION(Scalar function) --> for every input there is output    
+  2)MULTIROW FUNCTION (Aggregrate function) -->n inputs only one output
+
+MULTIROW FUNCTION
+
+AVG()-Returns Average Value.
+	==>select avg (salary) from emp;
+MAX()-Returns max value of the selected column.
+	==>select max(salary) from emp;
+MIN()-Returns minum value of the selected column.
+	==>select min(salary) from emp;
+COUNT()-it counts the number of rows.
+	==> select count(*) from emp;
+SUM()-Returns sum of all the values of the selected column.
+	==>select sum(salary) from emp;
+
+====================================================================================================================
+ORDER BY
+
+ORDER BY -> used to sort the result-set in ascending or descending order.
+SYNTAX => select *from table_name order by col_name asc/desc;
+
+from->where->select->orderby (Order of execution)
+
+1) query to display all record of emp and salary arranged in dec order?
+	==>select * from emp order by salary desc;
+
+====================================================================================================================
+SUBQUERY
+
+SUBQUERY ->Query inside anouther query
+Syntax => select* from where col_name operator (select *from table-name);
+
+->execution order first subquery then outer query 
+
+Types
+  1) Singlerow subquery
+  2) Multirow subquery
+
+Singlerow subquery :
+  If there is relational operator then that is singlerow subquery.
+   It gives only on result set.
+ 
+1) query to display all records of emp whose date of joining is same as Apoorva date?
+	==>select * from emp where  doj = (select doj from emp where name = 'Apoorva');
+
+2) query to display the second maximum salary?
+	==>select max(salary) from emp where salary < (select avg(salary) from emp);
+
+=====================================================================================================================
+
+If there are multiple values then we make use of ANY and ALL
+ANY -->if any of condition satisfies then we will get result
+ALL -->All conditions must be satisfied to display result
+
+
+Multirow subquery :
+
+ inner query will gives multiple result set.
+ It uses special operators.(ALL,IN and ANY)
+select * from emp where col_name operator (select * from table_name):
+
+1) query to display name of emp who is working in location which has atleast one 'A' in the location?
+	==>select name from emp where deptno in (select deptno from department where location like '%a%');
+
+2) query to display all records of emp who is working in admin,operation,development?
+	==>select * from emp where deptno in (select deptno from department where dname in('admin','development','operation'));
+
+==================================================================================================================================
+
+GROUP BY CLAUSE :
+-->Executes row by row.
+-->SYNTAX : select count(*) from employee groupby deptno;
+Order of execution : from-where-group by-select-counts
+
+1) query to display max salary for each dept?
+	==>select max(salary) from emp group by deptno;
+
+2) query to display the heighest salary given to hr for each deptno?
+	==>select max(salary) from emp where designation = 'hr' group by deptno;
+
+
+HAVING CLAUSE :
+-->Always used with group by,and executes after group by
+-->used for filter records which are getting from group by
+-->having must have only one condition 
+
+Order of execution : from-where-group by-having-select-counts
+
+1) query to display deptno which has atleast 2 emp working?
+	==>select deptno from  emp group by deptno having count(*)>=2;
+
+ROLLBACK : updated data is  not changed permanently.
+
+COMMIT : updated data is changed permanently and saved.
+
+SAVEPOINT : saves the data till certain point.
+
+===================================================================================================================================
+
+JOINS
+
+1)  CROSS JOINS (CARTESIAN JOIN) :
+-->  Records of one table are merged with second table.
+SYNTAX :  select * from emp, department;
+	 select * from emp cross join department;
+
+2)  INNER JOIN :
+--> It is used to obtain only matching (common records) records from table
+SYNTAX : select * from table1 inner join table2 on condition;      //(syntax given by ANSI)8
+                  select * from table1,table2 where <join condition>;    //(syntax given by Oracle)
+select * from emp e inner join department d on e.deptno = d.deptno;
+
+
+3) OUTER JOIN :
+
+LEFT OUTER JOIN :
+--> Combination of inner join and  unmatched records present in left table.
+SYNTAX : select * from table1 left outer join table2 on condition;
+	select * from table1,table2 where t1.columnname = t2.columnname(+);              //(Oracle)
+
+select * from emp e left outer join department d on e.deptno = d.deptno;
+
+RIGHT OUTER JOIN :
+--> Combination of inner join and  unmatched records present in righht table.
+SYNTAX : select * from table1 right outer join table2 on condition;
+	select * from table1,table2 where t1.columnname (+)= t2.columnname;              //(Oracle)
+
+select * from emp e right outer join department d on e.deptno = d.deptno;
+
+FULL OUTER JOIN :
+--> It obtains unmatched records from table.
+SYNTAX : select * from table1 full outer join table2 on condition;
+
+4) NATURAL JOIN :
+--> Is similar to inner join where we dose not provide condition.
+--> provide o/p if there is common column present or else provide null.
+SYNTAX : select * from table1 natural join table2;
+
+5) SELF JOIN :
+--> Joining of two same table is self join ,we use this join whenever this data is to be selected within same table but should be present in two different records.
+SYNTAX : select * from table1 t1 join table2 on condition;    //(ANSI)
+                 select * from table t1 ,table t2 where condition;  //(Oracle)
+
+===========================================================================================================================================
+
+KEY ATTTRIBUTES :
+--> Attributes with which we can identify records uniquely.
+
+NON  KEY ATTTRIBUTES :
+--> Apart from key attributes rest are non key attributes.
+
+PRIME KEY  ATTRIBUTES : 
+--> Among the key attributes choosen to identify record uniquely in table.
+
+NON-PRIME KEY  ATTRIBUTES : 
+--> Except primary key.
+
+COMPOSITE KEY :
+--> Combination of  2 or more key attribute which is used to identify the recods uniquely.
+
+FORIEGN KEY :
+-->Used to establish connection b/w 2 tables.
+
+SUPER KEY :
+--> Set of all key attributes
+
+FUNCTIONAL DEPENDENCY :
+--> A relation which exists such that attribute determine anouther attributes uniquely.
+  R -> {X,Y}ta
+ X ->Determinant
+Y ->Dependent
+TYPES :
+1)Total functional dependency
+2) Partial functional dependency
+3) Transient functional dependency
+
+1) TOTAL FUNCTIONAL DEPENDENCY : 
+--> If all attributes of a relation determined by a key attribute is functional dependency.
+
+2) PARTIAL FUNCTIONAL DEPENDENCY  :
+--> Relation is said to have partial functional dependency 
+	>> if it consist a composit key attribute.
+	>> There exist a dependent such that an attribute can be determined by other attribute which is part of composite key.
+{AB} -> {C,D}
+{B} -> {C}
+{A,B} -> {D}
+
+3) TRANSITIVE  FUNCTIONAL DEPENDENCY  :
+--> A relation is said to have transitive dependency if there exists a relation such that an attribute is determined by non key attribute which intern determined by key attribute .
+   A -> B
+   B -> C
+   So that A -> C
+==================================================================================================================================================
+
+NORMALIZATION :
+--> Process of decomposing table into smaller table in order to reduce redundancy and anomoly by identifying dependency.
+					OR
+--> Process   of reducing the table into its normal form
+
+
+NORMAL FORMS :
+--> The state of  table without redundancy and anomoly(problem occured during DML)
+
+1st NORMAL FORM :
+>> conditions
+1) Table should not contain duplicate records
+2) every cell in the table should have single value
+
+2nd NORMAL FORM :
+>> conditions
+1) Should follow 1st NF
+2)Table should shouldnt contain partial dependency
+
+3rd NORMAL FORM :
+>> conditions
+1) Should follow 2nd NF
+2) It shouldnt transitive FD
+
+4) BCNF : 
+Extendend version of 3rd NF
+
+MAPPING :
+-->
