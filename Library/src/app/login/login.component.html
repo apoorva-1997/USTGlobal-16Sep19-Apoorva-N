@@ -1,0 +1,35 @@
+<div class="col-md-4 offset-md-4 mt-5 card card-body">
+  <div class="card-header" style="background-color:black;">
+    <h3 style="text-align: center; color: white;">Login Here</h3>
+  </div><br>
+  <form #form='ngForm' (ngSubmit)="Loginform(form)">
+    <label for="email">Email</label>
+
+    <input type="email" name="email" id="email" class="form-control mb-3" #email="ngModel" ngModel required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    <div *ngIf="email.touched  && email.invalid">
+      <p *ngIf="email.errors.required" class="alert-danger">*This field is mandatory</p>
+      <p *ngIf="email.errors.pattern">*Invalid email</p>
+    </div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" class="form-control mb-3" #password="ngModel" ngModel required>
+
+    <div *ngIf="password.touched  && password.invalid">
+      <p *ngIf="password.errors.required" class="alert-danger">*This field is mandatory</p>
+    </div>
+
+
+
+    <button class="btn btn-outline-success" type="submit" style="float: right;" [disabled]="form.invalid">Login</button>
+  </form>
+</div>
+<!-- 
+<script>
+  function myFunction() {
+    let x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+</script> -->

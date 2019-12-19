@@ -1,0 +1,53 @@
+<!-- <div class="col-md-4 offset-md-4 mt-5 card card-body">
+    <div class="card-header" style="background-color: darkgreen;">
+    <h3 style="text-align: center; color: white;" >Login Here</h3>
+</div><br>
+    <form #issue="ngForm" (ngSubmit)="issueForm(issue)">
+        <label for="uid">User ID</label>
+       
+      
+        <input type="number" name="uid" id="uid" class="form-control mb-3" #uid="ngModel" ngModel required >
+
+    
+        <div *ngIf="uid.touched  && uid.invalid">
+            <p *ngIf="uid.errors.required" class="alert-danger">*This field is mandatory</p>
+        </div>
+        <label for="bid">Book ID</label>
+        <input type="number" name="bid" id="bid" class="form-control mb-3" #bid="ngModel" ngModel required>
+
+        <div *ngIf="bid.touched  && bid.invalid">
+            <p *ngIf="bid.errors.required" class="alert-danger">*This field is mandatory</p>
+        </div>
+
+      <label for="issue">IssueDate</label>
+       <input type="date" name="issue" id="issue" class="form-control mb-3" #issue="ngModel" ngModel required>
+     <button class="btn btn-outline-success" type="submit" style="float: right;" [disabled]="issue.invalid">Login</button>
+    </form>
+</div> -->
+
+<table class="table-bordered table-striped  col-md-8 offset-2" >
+    <thead style="background-color: black; color: white;">
+        <tr>
+            <th>user ID</th>
+            <th>Bid</th>
+            <th>Accept</th>
+            <th>Reject</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{uid}}</td>
+            <td>{{bid}}</td>
+            <td>
+                <button (click)=issue(uid,bid) class="btn btn-success">Accept</button>
+            </td> 
+            <td>
+                <button (click)=reject(uid,bid) class="btn btn-danger">Reject</button>
+            </td> 
+                      
+        </tr>
+    </tbody>
+    </table>
+
+  

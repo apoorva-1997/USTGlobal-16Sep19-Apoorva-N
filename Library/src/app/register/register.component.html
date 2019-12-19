@@ -1,0 +1,45 @@
+<body>
+<div class="alert alert-danger" *ngIf=error id="alert">{{error}}</div>
+<div class="alert alert-success" *ngIf=message id="alert">{{message}}</div>
+
+<div class="col-md-4 offset-md-4 mt-3 mb-5 card card-body ">
+    
+    <div class="card-header" style="background-color:black;">
+        <h3 style="text-align: center; color: white;">Register Form</h3>
+    </div><br>
+    <form #registerform='ngForm' (ngSubmit)="Registerform(registerform)">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" class="form-control mb-3" #username="ngModel" ngModel
+            required minlength="5" maxlength="20" pattern="[A-Za-z]{3,20}" title="username should have only alphabets">
+        <div *ngIf="username.touched && username.invalid">
+            <p *ngIf="username.errors.required" class="text-danger">*This field is mandatory</p>
+            <p *ngIf="username.errors.minlength">*username should be between 3-20 characters</p>
+            <p *ngIf="username.errors.pattern">*username should have only alphabets</p>
+
+        </div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control mb-3" #email="ngModel" ngModel required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <div *ngIf="email.touched && email.invalid">
+            <p *ngIf="email.errors.required" class="text-danger" style="text-size-adjust: 50px;">*This field is
+                mandatory</p>
+            <p *ngIf="email.errors.pattern">*Invalid email</p>
+
+        </div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control mb-3" #password="ngModel" ngModel
+            required minlength="6">
+        <div *ngIf="password.touched && password.invalid">
+            <p *ngIf="password.errors.required" class="text-danger">*This field is mandatory</p>
+            <p *ngIf="password.errors.minlength" class="text-danger">*password should contain atleast 6 characters</p>
+        </div>
+
+        <label for="role">Role</label><br>
+        <input type="radio" name="role" id="role1" value="admin" #role="ngModel" ngModel>Admin<br>
+        <input type="radio" name="role" id="role2" value="user" #role="ngModel" ngModel>User
+
+        <button class="btn btn-success" type="submit" style="float: right;"
+            [disabled]="registerform.invalid">Register</button>
+    </form>
+</div>
+</body>

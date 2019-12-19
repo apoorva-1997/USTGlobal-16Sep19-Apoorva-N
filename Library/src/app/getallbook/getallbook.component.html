@@ -1,0 +1,22 @@
+
+<table class="table-bordered table-striped  col-md-8 offset-2">
+    <thead style="background-color: black; color: white;">
+        <tr>
+            <th>Bid</th>
+            <th>Book name</th>
+            <th>author</th>
+            <th>Remove Book</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr  *ngFor = "let book of books">
+            <td>{{book.bid}}</td>
+            <td>{{book.bookname}}</td>
+            <td>{{book.author}}</td>
+            <td>
+                <button type="button" (click) = "deleteBooK(book)" class="btn btn-block btn-danger float-right">Remove</button>
+            </td>
+        </tr>
+    </tbody>
+    </table>

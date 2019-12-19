@@ -1,0 +1,18 @@
+h1 {
+    font-size: 58px;
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  div{
+    background-image: url(https://cdn.pixabay.com/photo/2016/10/22/02/34/bookshop-1759619__340.jpg);
+    height: 530px;
+    background-size: cover;    
+  }

@@ -1,0 +1,17 @@
+<div class="col-md-4 offset-md-4 mt-5 card card-body " style="background-color:white">
+    <div class="card-header" style="background-color:black">
+        <h3 style="text-align: center; color: white;">ADD BOOK</h3>
+    </div>
+    <div>
+        <form #add='ngForm' (ngSubmit)='addBook(add)'><br>
+            <label for="bid">Book Id</label>
+            <input type="tel" name="bid" id="bid" class="form-control mb-3" #bid=ngModel ngModel required> 
+            <label for="bookname">Book Name</label>
+            <input type="text" name="bookname" id="bookname" class="form-control mb-3" #bookname=ngModel ngModel required>
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author" class="form-control mb-3" #author=ngModel ngModel required>
+            <button type="submit" class="btn btn-success float-right" >Add Book</button>
+        </form>
+    </div>
+
+</div>
