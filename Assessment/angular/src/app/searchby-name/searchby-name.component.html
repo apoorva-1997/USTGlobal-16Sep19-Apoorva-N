@@ -1,0 +1,32 @@
+<body>
+    <div class="col-md-4 offset-4 mt-5">
+        <form #search='ngForm' (ngSubmit)='searchbyname(search)'>
+    
+            <input type="tel" name="search" id="search" placeholder="Enter book name.." #search='ngModel' ngModel >
+            <button type="submit" style="float: right;">search</button>
+        </form>
+    </div><br>
+    <img src="https://cdn.pixabay.com/photo/2015/11/03/09/09/magnifying-glass-1020142__340.jpg" alt="">
+    <table class="table-bordered table-striped  col-md-8 offset-2" *ngIf='product'>
+        <thead style="background-color: black; color: white;">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.company}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.price}}</td>
+            </tr>
+        </tbody>
+        </table>
+        </body>

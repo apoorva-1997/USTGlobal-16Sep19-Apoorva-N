@@ -1,0 +1,61 @@
+<div class="col-md-4 offset-md-4 mt-4 card card-body">
+    <div class="card-header" style="background-color:black">
+        <h1 style="text-align: center; color: white;">Add Product</h1>
+    </div>
+    <div>
+        <form #add="ngForm" (ngSubmit)='addproduct(add)'>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" #name="ngModel" ngModel required
+                    minlength="5" maxlength="20" pattern="[A-Za-z]{3,20}" title="username should have only alphabets">
+                <div *ngIf="name.touched && name.invalid">
+                    <p *ngIf="name.errors.required" class="text-danger">*This field is mandatory</p>
+                    <p *ngIf="name.errors.minlength" class="text-danger">*name should be between 3-20 characters</p>
+                    <p *ngIf="name.errors.pattern" class="text-danger">*name should have only alphabets</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" class="form-control" id="category" name="category" #category="ngModel" ngModel
+                    required minlength="5" maxlength="15" pattern="[A-Za-z]{3,20}"
+                    title="category should have only alphabets">
+                <div *ngIf="category.touched && category.invalid">
+                    <p *ngIf="category.errors.required" class="text-danger">*This field is mandatory</p>
+                    <p *ngIf="category.errors.minlength" class="text-danger">*category should be between 3-20 characters</p>
+                    <p *ngIf="category.errors.pattern" class="text-danger">*category should have only alphabets</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" id="company" name="company" #company="ngModel" ngModel required
+                    minlength="5" maxlength="15">
+                <div *ngIf="company.touched && company.invalid">
+                    <p *ngIf="company.errors.required" class="text-danger">*This field is mandatory</p>
+                    <p *ngIf="company.errors.minlength" class="text-danger">*company should be between 3-20 characters</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" #quantity="ngModel" ngModel
+                    required>
+                <div *ngIf="quantity.touched && quantity.invalid">
+                    <p *ngIf="quantity.errors.required" class="text-danger">*This field is mandatory</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" name="price" #price="ngModel" ngModel required>
+                <div *ngIf="price.touched && price.invalid">
+                    <p *ngIf="price.errors.required" class="text-danger">*This field is mandatory</p>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success float-right">Add Product</button>
+        </form>
+    </div>
+</div>
