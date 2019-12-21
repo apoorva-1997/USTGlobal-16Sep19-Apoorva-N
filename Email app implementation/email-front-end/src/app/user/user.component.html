@@ -1,0 +1,48 @@
+<ul class="nav justify-content-center navbar-white bg-white text-dark">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="/email">Compose</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/">Sent</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/">Draft</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/changepassword">change password</a>
+    </li>
+  </ul>
+
+  <!-------------------------------------------------------------------------------------->
+
+  <div class="col-md-4 offset-md-4 mt-5 card">
+    <div class="card-header bg-dark text-white">
+        <div class="card-title text-center">
+            <h4> Inbox </h4>
+        </div>
+    </div>
+    <div class="card-body">
+        <div *ngIf='emails'>
+            <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th> ID</th>
+                            <th>from_id</th>
+                            <th>to_idr</th>
+                            <th>subject</th>
+                            <th>message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let email of emails">
+                            <td>{{email.id}}</td>
+                            <td>{{bemailook.from_id}}</td>
+                            <td>{{email.to_idr}}</td>
+                            <td>{{email.subject}}</td>
+                            <td>{{email.message}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

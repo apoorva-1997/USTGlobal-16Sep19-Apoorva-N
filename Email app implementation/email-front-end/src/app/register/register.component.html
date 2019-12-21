@@ -1,0 +1,50 @@
+ <div id="form1">
+    <form class="col-md-4 offset-4  card card-body" #form="ngForm" (ngSubmit)="register(form)">
+    <h3 align="center">Create New Account</h3>
+
+    <div class="form-group">
+        Name:<br>
+        <input type="text" name="name" id="text" class="form-control" pattern="[A-Za-z]{3,}"
+            title="Name should not contain any digits" placeholder="Enter your Name" #name="ngModel" ngModel required>
+        <div *ngIf="name.touched && name.invalid">
+            <p class="alert alert-danger" *ngIf="name.errors.required">*This field is required</p>
+        </div>
+        <div *ngIf="name.errors?.pattern && name.touched">
+            <p class="alert alert-danger">Name should not contain any digits</p>
+        </div>
+    </div>
+    Email Id:
+    <div class="form-group">
+        <input type="email" name="email" id="email" pattern=".+@gmail.com" title="email should contain @ and dot(.)"
+            size="30" class="form-control" placeholder="Enter your Email" #email="ngModel" ngModel required>
+        <div *ngIf="email.touched && email.invalid">
+            <p class="alert alert-danger" *ngIf="email.errors.required">*This field is required</p>
+        </div>
+        <div *ngIf="email.errors?.pattern && email.touched">
+            <p class="alert alert-danger">email should contain lower case letters @gmail and dot(.com)</p>
+        </div>
+    </div>
+    Password:
+    <div class="form-group">
+        <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
+            class="form-control" placeholder="Enter your password" #password="ngModel" ngModel required>
+        <div *ngIf="password.touched && password.invalid">
+            <p class="alert alert-danger" *ngIf="password.errors.required">*This field is required</p>
+        </div>
+        <div *ngIf="password.errors?.pattern && password.touched">
+            <p class="alert alert-danger">Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters</p>
+        </div>
+    </div>
+   
+        <!-- <div *ngIf="type.errors?.pattern && type.touched">
+            <p class="alert alert-danger">type should not contain any digits</p>
+        </div> -->   
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Register</button>
+        <a routerLink="/login">Have an account? Login</a>
+    </div>
+
+
+</form>
+</div>

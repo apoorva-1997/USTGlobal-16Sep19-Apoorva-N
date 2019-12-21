@@ -1,0 +1,22 @@
+<div id="form1">
+    <form class="col-md-4 offset-4 mt-5 card card-body" #form="ngForm" (ngSubmit)="(form)">
+    
+    <h3 align="center">Find your email</h3>
+    <div class="form-group">
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="email should contain @ and dot(.)" size="30" 
+            #email="ngModel" ngModel required>
+        <div *ngIf="email.touched && email.invalid">
+            <p class="alert alert-danger" *ngIf="email.errors.required">*This field is required</p>
+        </div>
+        <div *ngIf="email.errors?.pattern && email.touched">
+            <p class="alert alert-danger">email should contain lower case letters @gmail and dot(.com)</p>
+        </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Next</button>
+            <a routerLink="/login">Back</a>
+        </div>
+    
+    </form>
+    </div>

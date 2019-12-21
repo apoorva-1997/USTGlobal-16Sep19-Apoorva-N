@@ -1,0 +1,35 @@
+<div id="form1"></div>
+<form class="col-md-4 offset-4 mt-5 card card-body" #form="ngForm" (ngSubmit)="login(form)">
+    <h1 align="center">Login</h1>
+    <div class="form-group">
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="email should contain @ and dot(.)" size="30" 
+            #email="ngModel" ngModel required>
+        <div *ngIf="email.touched && email.invalid">
+            <p class="alert alert-danger" *ngIf="email.errors.required">*This field is required</p>
+        </div>
+        <div *ngIf="email.errors?.pattern && email.touched">
+            <p class="alert alert-danger">email should contain lower case letters @gmail and dot(.com)</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters"
+            class="form-control" placeholder="Enter your password" #password="ngModel" ngModel required>
+        <div *ngIf="password.touched && password.invalid">
+            <p class="alert alert-danger" *ngIf="password.errors.required">*This field is required</p>
+        </div>
+        <div *ngIf="password.errors?.pattern && password.touched">
+            <p class="alert alert-danger">Must contain atleast one number and one uppercase and lowercase letter, and atleast 8 or more characters</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Login</button>
+        <a routerLink="/register">Create account</a>
+    </div>
+    <div class="form-group">
+        <a routerLink="/forgot">Forgot password?</a>
+    </div>
+    
+</form>
